@@ -1,7 +1,8 @@
-package com.nb.appplatziconf.ui
+package com.nb.appplatziconf.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.nb.appplatziconf.R
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
