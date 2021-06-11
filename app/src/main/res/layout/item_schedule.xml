@@ -67,13 +67,14 @@
 
             <TextView
                 android:id="@+id/tvItemScheduleConferenceTag"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Topico de la conferencia"
                 android:textSize="15sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:ellipsize="end"
+                android:background="@drawable/shape_topico"
                 android:lines="1"/>
 
         </LinearLayout>
