@@ -69,4 +69,7 @@ dependencies {
     //ciclo de vida para observar datos
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
+
+    //playservices
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 }
