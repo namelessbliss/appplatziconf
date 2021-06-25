@@ -28,11 +28,11 @@ class ScheduleFragment : Fragment(), ScheduleListener {
     private lateinit var scheduleAdapter: ScheduleAdapter
     private lateinit var viewModel: ScheduleViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.fragment_schedule, container, false)
+
+        viewModel = ViewModelProviders.of(this).get(ScheduleViewModel::class.java)
+        viewModel.refresh()
 
         rvSchedule = view.findViewById(R.id.rvSchedule)
         rlBaseSchedule = view.findViewById(R.id.rlBaseSchedule)
@@ -59,13 +59,6 @@ class ScheduleFragment : Fragment(), ScheduleListener {
             if (it != null)
                 rlBaseSchedule.visibility = View.INVISIBLE
         })
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        viewModel = ViewModelProviders.of(this).get(ScheduleViewModel::class.java)
-        viewModel.refresh()
     }
 
     override fun onConferenceClicked(conference: Conference, position: Int) {

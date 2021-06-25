@@ -1,12 +1,13 @@
 package com.nb.appplatziconf.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.nb.appplatziconf.model.Speaker
 import com.nb.appplatziconf.network.Callback
 import com.nb.appplatziconf.network.FirestoreService
 import java.lang.Exception
 
-class SpeakerViewModel {
+class SpeakerViewModel: ViewModel() {
     val firestoreService = FirestoreService()
     var listSpeakers: MutableLiveData<List<Speaker>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()
