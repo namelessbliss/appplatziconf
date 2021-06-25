@@ -1,9 +1,10 @@
 package com.nb.appplatziconf.view.ui.fragment
 
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +13,11 @@ import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.nb.appplatziconf.R
-import com.nb.appplatziconf.model.Conference
 import com.nb.appplatziconf.model.Speaker
-import java.text.SimpleDateFormat
 
 /**
  * A simple [Fragment] subclass.
@@ -60,8 +60,22 @@ class SpeakersDetailDialogFragment : DialogFragment() {
             .apply(RequestOptions.circleCropTransform())
             .into(ivDetailSpeakerImage)
         val ivDetailSpeakerTwitter: ImageView = view.findViewById(R.id.ivDetailSpeakerTwitter)
-        ivDetailSpeakerTwitter.setOnClickListener(View.OnClickListener { println("CLICK") })
-        //ivDetailSpeakerImage.text = conference.title
+        ivDetailSpeakerTwitter.setOnClickListener {
+            var intent: Intent? = null
+            try {
+                // get the Twitter app if possible
+                view.context.applicationContext.packageManager.getPackageInfo("com.twitter.android", 0)
+                intent = Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=${speaker.twitter}"))
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            } catch (e: Exception) {
+                // no Twitter app, revert to browser
+                intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://twitter.com/${speaker.twitter}")
+                )
+            }
+            this.startActivity(intent)
+        }
 
         val tvDetailSpeakerName: TextView = view.findViewById(R.id.tvDetailSpeakerName)
         tvDetailSpeakerName.text = speaker.name
@@ -76,6 +90,9 @@ class SpeakersDetailDialogFragment : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
+        dialog?.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
+        )
     }
 }
