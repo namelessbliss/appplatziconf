@@ -11,15 +11,15 @@
         android:theme="@style/Theme.MyApplication">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyB2VoaqqtTpGK6wXNiajQMdfmGz2rpKZjI"/>
-        <activity android:name="com.nb.appplatziconf.view.ui.activities.SplashScreenActivity"></activity>
-        <activity android:name="com.nb.appplatziconf.view.ui.activities.MainActivity">
+            android:value="AIzaSyB2VoaqqtTpGK6wXNiajQMdfmGz2rpKZjI" />
+
+        <activity android:name="com.nb.appplatziconf.view.ui.activities.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.nb.appplatziconf.view.ui.activities.MainActivity" />
     </application>
-
 </manifest>
