@@ -1,4 +1,4 @@
-package com.nb.appplatziconf.ui.fragment
+package com.nb.appplatziconf.view.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,14 +15,13 @@ private const val ARG_PARAM2 = "param2"
 /**
  * A simple [Fragment] subclass.
  */
-class SpeakersFragment : Fragment() {
+class SpeakersDetailDialogFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_speakers, container, false)
+        return inflater.inflate(R.layout.fragment_speakers_detail_dialog, container, false)
     }
-
 }

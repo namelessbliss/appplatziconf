@@ -1,4 +1,4 @@
-package com.nb.appplatziconf.ui.fragment
+package com.nb.appplatziconf.view.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
